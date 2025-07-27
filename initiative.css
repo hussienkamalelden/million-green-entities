@@ -1,0 +1,253 @@
+/* Initiative Page Specific Styles */
+
+.initiative-content {
+  padding-top: 70px;
+  opacity: 1;
+}
+
+.nav-link.active {
+  color: #007a55;
+  font-weight: 600;
+}
+
+/* Content Sections */
+.content-section {
+  padding: 60px 0;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.section-container.single-column {
+  justify-content: center;
+  max-width: 800px;
+}
+
+/* Text Content */
+.text-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.text-content.full-width {
+  width: 100%;
+  text-align: center;
+}
+
+.text-content h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-content h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.text-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.text-content ul li {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.text-content ul li::before {
+  content: '•';
+  color: #007a55;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* CTA Button */
+.cta-button {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #333;
+  padding: 12px 32px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Image Content */
+.image-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* Reverse Layout */
+.content-section.reverse .section-container {
+  flex-direction: row-reverse;
+}
+
+/* Mission Section Styling */
+.mission-section {
+  background-color: #f8f9fa;
+}
+
+/* FAQ Items */
+.faq-item {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .section-container {
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .text-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .content-section {
+    padding: 50px 0;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .initiative-content {
+    padding-top: 60px;
+  }
+
+  .section-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .content-section.reverse .section-container {
+    flex-direction: column;
+  }
+
+  .text-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .text-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+  }
+
+  .text-content ul li {
+    font-size: 1rem;
+  }
+
+  .content-section {
+    padding: 40px 0;
+  }
+
+  .image-content img {
+    border-radius: 8px;
+  }
+
+  .faq-item {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .initiative-content {
+    padding-top: 55px;
+  }
+
+  .section-container {
+    gap: 25px;
+    padding: 0 15px;
+  }
+
+  .text-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+
+  .text-content h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .text-content p {
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .text-content ul li {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  .content-section {
+    padding: 30px 0;
+  }
+
+  .cta-button {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+
+  .faq-item {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+  }
+}

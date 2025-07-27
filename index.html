@@ -3,196 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10K Block Homepage</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
-
-      .header {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      .header h1 {
-        color: #333;
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
-        margin-bottom: 10px;
-      }
-
-      .header p {
-        color: #666;
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
-      }
-
-      .canvas-container {
-        display: flex;
-        justify-content: center;
-        margin: 20px auto;
-        max-width: 100%;
-      }
-
-      .pixel-canvas {
-        display: grid;
-        grid-template-columns: repeat(100, 1fr);
-        grid-template-rows: repeat(100, 1fr);
-        width: 1000px;
-        height: 1000px;
-        max-width: 1000px;
-        max-height: 1000px;
-        background-color: white;
-        gap: 0;
-      }
-
-      .pixel-block {
-        width: 100%;
-        height: 100%;
-        background-color: #f2f1e6;
-        border: 1px solid #eaeaea;
-        position: relative;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .pixel-block:hover {
-        border-color: #007bff;
-        border-width: 2px;
-        z-index: 10;
-        transform: scale(1.1);
-      }
-
-      .pixel-block.logo {
-        background-image: url('images/logo.jpg');
-        background-repeat: no-repeat;
-        border: none;
-      }
-
-      /* Floating info box */
-      .info-box {
-        position: fixed;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.95);
-        border: 2px solid #007bff;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        z-index: 1000;
-        min-width: 200px;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(5px);
-      }
-
-      .info-box.visible {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .info-box h3 {
-        margin: 0 0 10px 0;
-        color: #333;
-        font-size: 1.1rem;
-      }
-
-      .info-box p {
-        margin: 5px 0;
-        color: #666;
-        font-size: 0.9rem;
-      }
-
-      .info-box .status {
-        font-weight: bold;
-      }
-
-      .info-box .status.available {
-        color: #28a745;
-      }
-
-      .info-box .status.unavailable {
-        color: #dc3545;
-      }
-
-      /* Loading screen */
-      .loading-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
-      }
-
-      .loading-screen.hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      .loader {
-        width: 60px;
-        height: 60px;
-        border: 4px solid #f0f0f0;
-        border-radius: 50%;
-        border-top-color: #007bff;
-        animation: spin 1s ease-in-out infinite;
-      }
-
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      /* Main content - initially hidden */
-      .main-content {
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-
-      .main-content.visible {
-        opacity: 1;
-      }
-
-      @media (max-width: 768px) {
-        body {
-          padding: 10px;
-        }
-
-        .pixel-canvas {
-          width: 95vmin;
-          height: 95vmin;
-        }
-
-        .info-box {
-          left: 10px;
-          min-width: 180px;
-          padding: 12px;
-        }
-      }
-    </style>
+    <title>One Million Green Entities</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Loading screen -->
     <div class="loading-screen" id="loadingScreen">
       <div class="loader"></div>
     </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <h1>One Million Green Entities</h1>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="initiative.html" class="nav-link">The Initiative</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact us</a>
+          </li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
 
     <!-- Main content -->
     <div class="main-content" id="mainContent">
@@ -213,264 +56,33 @@
       </div>
     </div>
 
-    <script>
-      let canvas;
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <a href="https://instagram.com" target="_blank" class="social-link">
+            <svg
+              class="instagram-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path
+                d="m16 11.37a4 4 0 1 1-7.74-1.37 4 4 0 0 1 7.74 1.37z"
+              ></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-right">
+          <a href="contact.html" class="contact-btn">Contact us</a>
+        </div>
+      </div>
+    </footer>
 
-      // Define image configurations - you can add more images here
-      const imageConfigs = {
-        logo: {
-          src: 'https://picsum.photos/200',
-          url: 'https://google.com', // URL to open when clicked
-          blocks: [
-            // Center area example - you can change these to any block numbers (0-9999)
-            4950,
-            4951, 4952, 4953, 4954, 4955, 4956, 4957, 4958, 4959, 5050, 5051,
-            5052, 5053, 5054, 5055, 5056, 5057, 5058, 5059, 5150, 5151, 5152,
-            5153, 5154, 5155, 5156, 5157, 5158, 5159, 5250, 5251, 5252, 5253,
-            5254, 5255, 5256, 5257, 5258, 5259,
-          ],
-        },
-        angular: {
-          src: 'https://picsum.photos/id/237/200',
-          url: 'https://www.wikipedia.org/', // URL to open when clicked
-          blocks: [10, 11, 12, 13, 14, 15],
-        },
-      };
-
-      // Get all occupied blocks from all images
-      function getAllOccupiedBlocks() {
-        const allBlocks = [];
-        Object.values(imageConfigs).forEach((config) => {
-          allBlocks.push(...config.blocks);
-        });
-        return allBlocks;
-      }
-
-      // Initialize the application
-      function init() {
-        canvas = document.getElementById('pixelCanvas');
-        createBlocks();
-        applyImageBlocks();
-      }
-
-      // Create 10,000 blocks (100x100 grid)
-      function createBlocks() {
-        for (let i = 0; i < 10000; i++) {
-          const block = document.createElement('div');
-          block.className = 'pixel-block';
-          block.dataset.index = i;
-          block.dataset.row = Math.floor(i / 100);
-          block.dataset.col = i % 100;
-
-          // Add hover event listeners
-          block.addEventListener('mouseenter', showBlockInfo);
-          block.addEventListener('mouseleave', hideBlockInfo);
-
-          canvas.appendChild(block);
-        }
-      }
-
-      // Show block info in floating box
-      function showBlockInfo(event) {
-        const block = event.target;
-        const blockIndex = parseInt(block.dataset.index);
-        const allOccupiedBlocks = getAllOccupiedBlocks();
-        const isOccupied = allOccupiedBlocks.includes(blockIndex);
-
-        const infoBox = document.getElementById('infoBox');
-        const blockNumber = document.getElementById('blockNumber');
-        const blockStatus = document.getElementById('blockStatus');
-
-        blockNumber.textContent = blockIndex;
-
-        if (isOccupied) {
-          blockStatus.textContent = 'Unavailable';
-          blockStatus.className = 'status unavailable';
-        } else {
-          blockStatus.textContent = 'Available';
-          blockStatus.className = 'status available';
-        }
-
-        infoBox.classList.add('visible');
-      }
-
-      // Hide block info
-      function hideBlockInfo() {
-        const infoBox = document.getElementById('infoBox');
-        infoBox.classList.remove('visible');
-      }
-
-      // Handle page loading
-      function showMainContent() {
-        const loadingScreen = document.getElementById('loadingScreen');
-        const mainContent = document.getElementById('mainContent');
-
-        // Hide loading screen
-        loadingScreen.classList.add('hidden');
-
-        // Show main content after a short delay
-        setTimeout(() => {
-          mainContent.classList.add('visible');
-        }, 300);
-      }
-
-      // Initialize when page content loads
-      document.addEventListener('DOMContentLoaded', function () {
-        init();
-
-        // Wait exactly 3 seconds then show content
-        setTimeout(showMainContent, 3000);
-      });
-
-      // Convert block index to row/col coordinates
-      function indexToCoords(index) {
-        return {
-          row: Math.floor(index / 100),
-          col: index % 100,
-        };
-      }
-
-      // Convert row/col coordinates to block index
-      function coordsToIndex(row, col) {
-        return row * 100 + col;
-      }
-
-      // Find connected groups of blocks for a specific image
-      function findImageGroups(blocks) {
-        const visited = new Set();
-        const groups = [];
-
-        blocks.forEach((blockIndex) => {
-          if (!visited.has(blockIndex)) {
-            const group = [];
-            const queue = [blockIndex];
-            visited.add(blockIndex);
-
-            while (queue.length > 0) {
-              const currentIndex = queue.shift();
-              group.push(currentIndex);
-
-              const coords = indexToCoords(currentIndex);
-
-              // Check adjacent blocks (4-directional: up, down, left, right)
-              const adjacentCoords = [
-                { row: coords.row - 1, col: coords.col }, // up
-                { row: coords.row + 1, col: coords.col }, // down
-                { row: coords.row, col: coords.col - 1 }, // left
-                { row: coords.row, col: coords.col + 1 }, // right
-              ];
-
-              adjacentCoords.forEach((adjCoords) => {
-                if (
-                  adjCoords.row >= 0 &&
-                  adjCoords.row < 100 &&
-                  adjCoords.col >= 0 &&
-                  adjCoords.col < 100
-                ) {
-                  const adjIndex = coordsToIndex(adjCoords.row, adjCoords.col);
-
-                  if (blocks.includes(adjIndex) && !visited.has(adjIndex)) {
-                    visited.add(adjIndex);
-                    queue.push(adjIndex);
-                  }
-                }
-              });
-            }
-
-            groups.push(group);
-          }
-        });
-
-        return groups;
-      }
-
-      // Calculate bounding rectangle for a group of blocks
-      function getGroupBounds(group) {
-        const coords = group.map(indexToCoords);
-
-        const minRow = Math.min(...coords.map((c) => c.row));
-        const maxRow = Math.max(...coords.map((c) => c.row));
-        const minCol = Math.min(...coords.map((c) => c.col));
-        const maxCol = Math.max(...coords.map((c) => c.col));
-
-        return {
-          minRow,
-          maxRow,
-          minCol,
-          maxCol,
-          width: maxCol - minCol + 1,
-          height: maxRow - minRow + 1,
-        };
-      }
-
-      // Apply images to specific blocks with expanded image support
-      function applyImageBlocks() {
-        const blocks = document.querySelectorAll('.pixel-block');
-        const allOccupiedBlocks = getAllOccupiedBlocks();
-
-        // Process each image configuration
-        Object.entries(imageConfigs).forEach(([imageName, config]) => {
-          const imageGroups = findImageGroups(config.blocks);
-
-          // Apply image class to all blocks for this image first and convert to anchors
-          config.blocks.forEach((blockIndex) => {
-            if (blockIndex >= 0 && blockIndex < 10000) {
-              const oldBlock = blocks[blockIndex];
-
-              // Create new anchor element
-              const newAnchor = document.createElement('a');
-              newAnchor.className = oldBlock.className + ' logo'; // Keep existing classes and add 'logo'
-              newAnchor.dataset.index = oldBlock.dataset.index;
-              newAnchor.dataset.row = oldBlock.dataset.row;
-              newAnchor.dataset.col = oldBlock.dataset.col;
-              newAnchor.dataset.imageType = imageName;
-              newAnchor.href = config.url || '#'; // Use URL from config or fallback to '#'
-              newAnchor.target = '_blank';
-              newAnchor.style.display = 'block'; // Ensure anchor behaves like block element
-
-              // Add hover event listeners to the new anchor
-              newAnchor.addEventListener('mouseenter', showBlockInfo);
-              newAnchor.addEventListener('mouseleave', hideBlockInfo);
-
-              // Replace the old block with the new anchor
-              oldBlock.parentNode.replaceChild(newAnchor, oldBlock);
-            }
-          });
-
-          // For each group, calculate and apply the expanded image
-          imageGroups.forEach((group) => {
-            const bounds = getGroupBounds(group);
-
-            group.forEach((blockIndex) => {
-              // Find the current block (now might be an anchor)
-              const block = canvas.children[blockIndex];
-              const coords = indexToCoords(blockIndex);
-
-              // Calculate position within the group
-              const relativeRow = coords.row - bounds.minRow;
-              const relativeCol = coords.col - bounds.minCol;
-
-              // Calculate background position as percentage
-              const backgroundPosX =
-                bounds.width > 1
-                  ? (relativeCol / (bounds.width - 1)) * 100
-                  : 50;
-              const backgroundPosY =
-                bounds.height > 1
-                  ? (relativeRow / (bounds.height - 1)) * 100
-                  : 50;
-
-              // Apply background properties for expanded image
-              block.style.backgroundImage = `url('${config.src}')`;
-              block.style.backgroundSize = `${bounds.width * 100}% ${
-                bounds.height * 100
-              }%`;
-              block.style.backgroundPosition = `${backgroundPosX}% ${backgroundPosY}%`;
-              block.style.backgroundRepeat = 'no-repeat';
-            });
-          });
-        });
-      }
-    </script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
