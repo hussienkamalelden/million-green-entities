@@ -162,7 +162,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #edeef0;
   position: relative;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
