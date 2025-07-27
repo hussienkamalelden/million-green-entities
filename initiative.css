@@ -86,24 +86,27 @@
 
 .text-content h2 {
   font-size: 2.5rem;
-  color: #333;
+  color: #1a1a1a;
   margin-bottom: 24px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .text-content h3 {
   font-size: 1.2rem;
-  color: #333;
+  color: #1a1a1a;
   margin-bottom: 12px;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .text-content p {
   font-size: 1.1rem;
-  color: #666;
-  line-height: 1.6;
+  color: #6b7280;
+  line-height: 1.7;
   margin-bottom: 20px;
+  font-weight: 400;
 }
 
 .text-content ul {
@@ -114,11 +117,12 @@
 
 .text-content ul li {
   font-size: 1.1rem;
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 12px;
-  padding-left: 20px;
+  color: #6b7280;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  padding-left: 22px;
   position: relative;
+  font-weight: 400;
 }
 
 .text-content ul li::before {
@@ -131,23 +135,25 @@
 
 /* CTA Button */
 .cta-button {
-  background-color: transparent;
-  color: #333;
-  border: 2px solid #333;
-  padding: 12px 32px;
-  border-radius: 25px;
-  font-size: 1rem;
+  background-color: #007a55;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 24px;
   text-decoration: none;
   display: inline-block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: #008b61;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Image Content */
@@ -171,14 +177,20 @@
 
 /* Mission Section Styling */
 .mission-section {
-  background-color: #f8f9fa;
+  background-color: #f9fafb;
+}
+
+/* Image Content */
+.image-content img {
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
 }
 
 /* FAQ Items */
 .faq-item {
   margin-bottom: 32px;
   padding-bottom: 24px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .faq-item:last-child {
