@@ -7,7 +7,7 @@
 }
 
 .nav-link.active {
-  color: #007bff;
+  color: #007a55;
   font-weight: 600;
 }
 
@@ -64,7 +64,7 @@
 .contact-icon {
   width: 48px;
   height: 48px;
-  background-color: #007bff;
+  background-color: #007a55;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -94,7 +94,7 @@
 
 /* Why Contact Us Section */
 .why-contact {
-  background-color: #007bff;
+  background-color: #007a55;
   padding: 30px;
   border-radius: 12px;
   color: white;
@@ -183,7 +183,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #007a55;
 }
 
 .form-group textarea {
@@ -208,7 +208,7 @@
 
 /* Submit Button */
 .submit-btn {
-  background-color: #007bff;
+  background-color: #007a55;
   color: white;
   border: none;
   padding: 16px 32px;
@@ -225,7 +225,7 @@
 }
 
 .submit-btn:hover {
-  background-color: #0056b3;
+  background-color: #008b61;
 }
 
 .submit-icon {

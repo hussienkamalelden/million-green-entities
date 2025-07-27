@@ -6,7 +6,7 @@
 }
 
 .nav-link.active {
-  color: #007bff;
+  color: #007a55;
   font-weight: 600;
 }
 
@@ -79,7 +79,7 @@
 
 .text-content ul li::before {
   content: '•';
-  color: #007bff;
+  color: #007a55;
   font-weight: bold;
   position: absolute;
   left: 0;

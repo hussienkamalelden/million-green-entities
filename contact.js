@@ -214,7 +214,7 @@ function showSuccessMessage(submitBtn) {
       </svg>
       Send Message
     `;
-    submitBtn.style.backgroundColor = '#007bff';
+    submitBtn.style.backgroundColor = '#007a55';
   }, 3000);
 }
 
