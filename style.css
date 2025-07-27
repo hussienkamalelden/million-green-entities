@@ -41,6 +41,16 @@ body {
   height: 70px;
 }
 
+.nav-brand-link {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-brand-link:hover {
+  opacity: 0.8;
+}
+
 .nav-brand h1 {
   color: #1a1a1a;
   font-size: 1.5rem;
@@ -162,7 +172,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #edeef0;
   position: relative;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -184,23 +194,53 @@ body {
   border: none;
 }
 
-/* Floating info box */
-.info-box {
-  position: fixed;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+/* Block info above grid */
+.block-info-top {
+  text-align: center;
+  margin: 0 auto 20px auto;
+  max-width: 1000px;
+  padding: 12px 20px;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
-  min-width: 220px;
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(20px);
+}
+
+.block-info-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.block-info-text {
+  font-size: 0.95rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.block-info-text strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.block-info-text .status {
+  font-weight: 600;
+}
+
+.block-info-text .status.available {
+  color: #10b981;
+}
+
+.block-info-text .status.unavailable {
+  color: #ef4444;
+}
+
+/* Legacy info box - keeping for backward compatibility but hidden */
+.info-box {
+  display: none;
 }
 
 .info-box.visible {
@@ -331,10 +371,13 @@ body {
     height: 95vmin;
   }
 
-  .info-box {
-    left: 10px;
-    min-width: 170px;
-    padding: 10px;
+  .block-info-top {
+    margin: 0 10px 15px 10px;
+    padding: 10px 16px;
+  }
+
+  .block-info-text {
+    font-size: 0.9rem;
   }
 
   .footer-container {
@@ -410,15 +453,13 @@ body {
     height: 98vmin;
   }
 
-  .info-box {
-    left: 5px;
-    min-width: 150px;
-    padding: 8px;
-    font-size: 0.85rem;
+  .block-info-top {
+    margin: 0 5px 12px 5px;
+    padding: 8px 14px;
   }
 
-  .info-box h3 {
-    font-size: 1rem;
+  .block-info-text {
+    font-size: 0.85rem;
   }
 
   .footer {

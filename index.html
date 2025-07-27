@@ -16,7 +16,9 @@
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-brand">
-          <h1>One Million Green Entities</h1>
+          <a href="index.html" class="nav-brand-link">
+            <h1>One Million Green Entities</h1>
+          </a>
         </div>
         <ul class="nav-menu" id="navMenu">
           <li class="nav-item">
@@ -39,20 +41,17 @@
 
     <!-- Main content -->
     <div class="main-content" id="mainContent">
-      <div class="header"></div>
+      <!-- Block Info Above Grid -->
+      <div class="block-info-top" id="blockInfoTop">
+        <span class="block-info-text">
+          <strong>Block #:</strong> <span id="blockNumberTop">-</span> |
+          <strong>Status:</strong>
+          <span id="blockStatusTop" class="status">-</span>
+        </span>
+      </div>
 
       <div class="canvas-container">
         <div class="pixel-canvas" id="pixelCanvas"></div>
-      </div>
-
-      <!-- Floating info box -->
-      <div class="info-box" id="infoBox">
-        <h3 id="blockTitle">Block Info</h3>
-        <p><strong>Block #:</strong> <span id="blockNumber">-</span></p>
-        <p>
-          <strong>Status:</strong>
-          <span id="blockStatus" class="status">-</span>
-        </p>
       </div>
     </div>
 
