@@ -97,6 +97,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 20px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .cta-button:hover {
