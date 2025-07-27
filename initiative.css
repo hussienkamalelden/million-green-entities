@@ -5,6 +5,50 @@
   opacity: 1;
 }
 
+/* Scroll Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animations for multiple elements */
+.animate-on-scroll:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.animate-on-scroll:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.animate-on-scroll:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.animate-on-scroll:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    transform: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .animate-on-scroll:nth-child(1),
+  .animate-on-scroll:nth-child(2),
+  .animate-on-scroll:nth-child(3),
+  .animate-on-scroll:nth-child(4) {
+    transition-delay: 0s;
+  }
+}
+
 .nav-link.active {
   color: #007a55;
   font-weight: 600;
@@ -163,6 +207,12 @@
 @media (max-width: 768px) {
   .initiative-content {
     padding-top: 60px;
+  }
+
+  /* Reduce animation distance on mobile for better performance */
+  .animate-on-scroll {
+    transform: translateY(30px);
+    transition-duration: 0.6s;
   }
 
   .section-container {
