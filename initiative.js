@@ -3,6 +3,7 @@
 // Initialize when page content loads
 document.addEventListener('DOMContentLoaded', function () {
   initMobileMenu();
+  initScrollAnimations();
 });
 
 // Mobile menu functionality
@@ -33,4 +34,53 @@ function initMobileMenu() {
       }
     });
   }
+}
+
+// Scroll animations functionality
+function initScrollAnimations() {
+  // Check for Intersection Observer support
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: show all animations immediately for older browsers
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach((element) => {
+      element.classList.add('animate-in');
+    });
+    return;
+  }
+
+  // Create intersection observer
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -10% 0px', // Trigger when 10% of element is visible
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Add animation class when element comes into view
+        entry.target.classList.add('animate-in');
+        // Stop observing this element once animated
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with animate-on-scroll class
+  const animateElements = document.querySelectorAll('.animate-on-scroll');
+  animateElements.forEach((element) => {
+    observer.observe(element);
+  });
+
+  // Add a small delay for elements that are already in viewport on page load
+  setTimeout(() => {
+    const visibleElements = document.querySelectorAll('.animate-on-scroll');
+    visibleElements.forEach((element) => {
+      const rect = element.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isVisible && !element.classList.contains('animate-in')) {
+        element.classList.add('animate-in');
+      }
+    });
+  }, 100);
 }
