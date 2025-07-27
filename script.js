@@ -33,34 +33,34 @@ function createBlocks() {
   }
 }
 
-// Show block info in floating box
+// Show block info above grid
 function showBlockInfo(event) {
   const block = event.target;
   const blockIndex = parseInt(block.dataset.index);
   const allOccupiedBlocks = getAllOccupiedBlocks();
   const isOccupied = allOccupiedBlocks.includes(blockIndex);
 
-  const infoBox = document.getElementById('infoBox');
-  const blockNumber = document.getElementById('blockNumber');
-  const blockStatus = document.getElementById('blockStatus');
+  const blockInfoTop = document.getElementById('blockInfoTop');
+  const blockNumberTop = document.getElementById('blockNumberTop');
+  const blockStatusTop = document.getElementById('blockStatusTop');
 
-  blockNumber.textContent = blockIndex;
+  blockNumberTop.textContent = blockIndex;
 
   if (isOccupied) {
-    blockStatus.textContent = 'Unavailable';
-    blockStatus.className = 'status unavailable';
+    blockStatusTop.textContent = 'Unavailable';
+    blockStatusTop.className = 'status unavailable';
   } else {
-    blockStatus.textContent = 'Available';
-    blockStatus.className = 'status available';
+    blockStatusTop.textContent = 'Available';
+    blockStatusTop.className = 'status available';
   }
 
-  infoBox.classList.add('visible');
+  blockInfoTop.classList.add('visible');
 }
 
 // Hide block info
 function hideBlockInfo() {
-  const infoBox = document.getElementById('infoBox');
-  infoBox.classList.remove('visible');
+  const blockInfoTop = document.getElementById('blockInfoTop');
+  blockInfoTop.classList.remove('visible');
 }
 
 // Handle page loading
