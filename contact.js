@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initMobileMenu();
   initContactForm();
   initScrollAnimations();
+  initAccordion();
 });
 
 // Mobile menu functionality
@@ -228,6 +229,58 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// Accordion functionality
+function initAccordion() {
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+  accordionHeaders.forEach((header) => {
+    header.addEventListener('click', function () {
+      const accordionItem = this.parentElement;
+      const accordionContent =
+        accordionItem.querySelector('.accordion-content');
+      const isActive = this.classList.contains('active');
+
+      // Close all accordion items
+      accordionHeaders.forEach((otherHeader) => {
+        const otherItem = otherHeader.parentElement;
+        const otherContent = otherItem.querySelector('.accordion-content');
+
+        otherHeader.classList.remove('active');
+        otherContent.classList.remove('active');
+        otherHeader.setAttribute('aria-expanded', 'false');
+      });
+
+      // If this item wasn't active, open it
+      if (!isActive) {
+        this.classList.add('active');
+        accordionContent.classList.add('active');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Add keyboard support
+    header.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+
+    // Make headers focusable for keyboard navigation
+    header.setAttribute('tabindex', '0');
+    header.setAttribute('role', 'button');
+    header.setAttribute('aria-expanded', 'false');
+
+    // Set up ARIA attributes
+    const accordionContent =
+      header.parentElement.querySelector('.accordion-content');
+    const contentId =
+      'accordion-content-' + Math.random().toString(36).substr(2, 9);
+    accordionContent.setAttribute('id', contentId);
+    header.setAttribute('aria-controls', contentId);
+  });
+}
 
 // Scroll animations functionality
 function initScrollAnimations() {
