@@ -196,6 +196,11 @@ body {
 
 /* Block info above grid */
 .block-info-top {
+  position: fixed;
+  top: 10%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   text-align: center;
   margin: 0 auto 20px auto;
   max-width: 1000px;
@@ -320,6 +325,7 @@ body {
 
 .main-content.visible {
   opacity: 1;
+  padding-top: 10%;
 }
 
 /* Tablet Styles */
