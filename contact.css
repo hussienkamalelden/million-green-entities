@@ -187,7 +187,6 @@
 
 /* FAQ Section */
 .faq-section {
-  margin-top: 40px;
   padding: 30px;
   background-color: #f9fafb;
   border-radius: 12px;
@@ -478,7 +477,6 @@
 
   .faq-section {
     padding: 24px;
-    margin-top: 32px;
   }
 
   .accordion-header {
@@ -580,7 +578,6 @@
 
   .faq-section {
     padding: 20px;
-    margin-top: 28px;
   }
 
   .accordion-header {
@@ -713,7 +710,6 @@
 
   .faq-section {
     padding: 16px;
-    margin-top: 24px;
   }
 
   .accordion-header {
