@@ -13,20 +13,90 @@
       <div class="nav-container">
         <div class="nav-brand">
           <a href="index.html" class="nav-brand-link">
-            <h1>One Million Green Entities</h1>
+            <div class="brand-logo">
+              <div class="logo-grid">
+                <div class="logo-pixel"></div>
+                <div class="logo-pixel"></div>
+                <div class="logo-pixel"></div>
+                <div class="logo-pixel"></div>
+              </div>
+              <div class="brand-text">
+                <h1>One Million Green Entities</h1>
+                <span class="brand-tagline"
+                  >Connecting sustainability worldwide</span
+                >
+              </div>
+            </div>
           </a>
         </div>
         <ul class="nav-menu" id="navMenu">
           <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html" class="nav-link">
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9,22 9,12 15,12 15,22" />
+              </svg>
+              <span>Home</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a href="initiative.html" class="nav-link active">The Initiative</a>
+            <a href="initiative.html" class="nav-link active">
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                />
+              </svg>
+              <span>The Initiative</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a href="contact.html" class="nav-link">Contact us</a>
+            <a href="contact.html" class="nav-link">
+              <svg
+                class="nav-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <span>Contact</span>
+            </a>
           </li>
         </ul>
+        <div class="nav-cta">
+          <a href="contact.html" class="join-btn">
+            <svg
+              class="join-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            Join Network
+          </a>
+        </div>
         <div class="hamburger" id="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -367,25 +437,161 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-container">
-        <div class="footer-left">
-          <a href="https://instagram.com" target="_blank" class="social-link">
-            <svg
-              class="instagram-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path
-                d="m16 11.37a4 4 0 1 1-7.74-1.37 4 4 0 0 1 7.74 1.37z"
-              ></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
+        <!-- Footer Main Content -->
+        <div class="footer-main">
+          <!-- Brand Section -->
+          <div class="footer-section footer-brand">
+            <div class="footer-logo">
+              <div class="footer-logo-grid">
+                <div class="footer-pixel"></div>
+                <div class="footer-pixel"></div>
+                <div class="footer-pixel"></div>
+                <div class="footer-pixel"></div>
+                <div class="footer-pixel"></div>
+                <div class="footer-pixel"></div>
+              </div>
+              <div class="footer-brand-text">
+                <h3>One Million Green Entities</h3>
+                <p>
+                  Building a global network of environmentally conscious
+                  organizations, one pixel at a time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Platform Section -->
+          <div class="footer-section">
+            <h4>Platform</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Interactive Grid</a></li>
+              <li><a href="initiative.html">Our Mission</a></li>
+              <li><a href="initiative.html#how-it-works">How It Works</a></li>
+              <li><a href="contact.html">Join Network</a></li>
+            </ul>
+          </div>
+
+          <!-- Impact Section -->
+          <div class="footer-section">
+            <h4>Impact</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="initiative.html#social-projects">Social Projects</a>
+              </li>
+              <li><a href="initiative.html#community">Green Community</a></li>
+              <li>
+                <a href="initiative.html#sustainability"
+                  >Sustainability Goals</a
+                >
+              </li>
+              <li>
+                <a href="initiative.html#verification">Entity Verification</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Connect Section -->
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                class="social-link"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="m16 11.37a4 4 0 1 1-7.74-1.37 4 4 0 0 1 7.74 1.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                class="social-link"
+                aria-label="Twitter"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                class="social-link"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+            <div class="contact-info">
+              <a href="contact.html" class="footer-contact-btn">
+                <svg
+                  class="contact-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                Get In Touch
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="footer-right">
-          <a href="contact.html" class="contact-btn">Contact us</a>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-stats">
+            <div class="stat-item">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Green Entities</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">€2</span>
+              <span class="stat-label">Per Cell</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">10,000</span>
+              <span class="stat-label">Pixels Per Cell</span>
+            </div>
+          </div>
+          <div class="footer-legal">
+            <p>
+              &copy; 2024 One Million Green Entities. Building a sustainable
+              digital community.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

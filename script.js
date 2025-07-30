@@ -149,10 +149,39 @@ function showMainContent() {
 document.addEventListener('DOMContentLoaded', function () {
   init();
   initMobileMenu();
+  initFooterStats();
 
   // Wait exactly 3 seconds then show content
   setTimeout(showMainContent, 3000);
 });
+
+// Animate footer statistics
+function initFooterStats() {
+  const entitiesCount = document.getElementById('entitiesCount');
+  if (entitiesCount) {
+    animateCounter(entitiesCount, 0, Object.keys(imageConfigs).length, 2000);
+  }
+}
+
+function animateCounter(element, start, end, duration) {
+  let startTime = null;
+
+  function animate(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+    const value = Math.floor(progress * (end - start) + start);
+    element.textContent = value;
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  // Start animation after a delay when footer is visible
+  setTimeout(() => {
+    requestAnimationFrame(animate);
+  }, 1000);
+}
 
 // Mobile menu functionality
 function initMobileMenu() {
