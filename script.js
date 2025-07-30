@@ -63,18 +63,86 @@ function hideBlockInfo() {
   blockInfoTop.classList.remove('visible');
 }
 
-// Handle page loading
-function showMainContent() {
+// Handle page loading with animated pixel grid
+function initLoader() {
+  const pixelGrid = document.getElementById('pixelGrid');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+
+  // Generate pixel grid (12x8 = 96 pixels on desktop)
+  const gridCols =
+    window.innerWidth <= 480 ? 8 : window.innerWidth <= 768 ? 10 : 12;
+  const gridRows =
+    window.innerWidth <= 480 ? 5 : window.innerWidth <= 768 ? 6 : 8;
+  const totalPixels = gridCols * gridRows;
+
+  // Clear existing pixels
+  pixelGrid.innerHTML = '';
+
+  // Create pixel elements
+  for (let i = 0; i < totalPixels; i++) {
+    const pixel = document.createElement('div');
+    pixel.className = 'pixel-item';
+    pixel.style.animationDelay = `${i * 0.02 + Math.random() * 0.1}s`;
+    pixelGrid.appendChild(pixel);
+  }
+
+  // Start progress animation
+  animateProgress(progressFill, progressText, totalPixels);
+}
+
+function animateProgress(progressFill, progressText, totalPixels) {
+  let progress = 0;
+  const duration = 2500; // Total animation duration
+  const interval = duration / 100; // Update every 1% of progress
+
+  const progressInterval = setInterval(() => {
+    progress += 1 + Math.random() * 2; // Variable progress increments
+
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(progressInterval);
+
+      // Complete the loading sequence
+      setTimeout(() => {
+        completeLoading();
+      }, 500);
+    }
+
+    // Update progress bar and text
+    progressFill.style.width = `${progress}%`;
+    progressText.textContent = `${Math.floor(progress)}%`;
+  }, interval);
+}
+
+function completeLoading() {
   const loadingScreen = document.getElementById('loadingScreen');
   const mainContent = document.getElementById('mainContent');
 
-  // Hide loading screen
-  loadingScreen.classList.add('hidden');
+  // Add completion effect to pixels
+  const pixels = document.querySelectorAll('.pixel-item');
+  pixels.forEach((pixel, index) => {
+    setTimeout(() => {
+      pixel.style.transform = 'scale(0)';
+      pixel.style.opacity = '0';
+    }, index * 5);
+  });
 
-  // Show main content after a short delay
+  // Hide loading screen with fade out
   setTimeout(() => {
-    mainContent.classList.add('visible');
-  }, 300);
+    loadingScreen.classList.add('hidden');
+
+    // Show main content
+    setTimeout(() => {
+      mainContent.classList.add('visible');
+    }, 300);
+  }, 800);
+}
+
+// Initialize loader when called
+function showMainContent() {
+  // Start the animated loader sequence
+  initLoader();
 }
 
 // Initialize when page content loads
