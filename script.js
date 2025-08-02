@@ -294,7 +294,7 @@ function getGroupBounds(group) {
   };
 }
 
-// Apply images to specific blocks with expanded image support
+// Apply images to specific blocks with object-fit cover support
 function applyImageBlocks() {
   const blocks = document.querySelectorAll('.pixel-block');
   const allOccupiedBlocks = getAllOccupiedBlocks();
@@ -303,58 +303,68 @@ function applyImageBlocks() {
   Object.entries(imageConfigs).forEach(([imageName, config]) => {
     const imageGroups = findImageGroups(config.blocks);
 
-    // Apply image class to all blocks for this image first and convert to anchors
+    // Mark all blocks for this image as occupied
     config.blocks.forEach((blockIndex) => {
       if (blockIndex >= 0 && blockIndex < 10000) {
         const oldBlock = blocks[blockIndex];
-
-        // Create new anchor element
-        const newAnchor = document.createElement('a');
-        newAnchor.className = oldBlock.className + ' logo'; // Keep existing classes and add 'logo'
-        newAnchor.dataset.index = oldBlock.dataset.index;
-        newAnchor.dataset.row = oldBlock.dataset.row;
-        newAnchor.dataset.col = oldBlock.dataset.col;
-        newAnchor.dataset.imageType = imageName;
-        newAnchor.href = config.url || '#'; // Use URL from config or fallback to '#'
-        newAnchor.target = '_blank';
-        newAnchor.style.display = 'block'; // Ensure anchor behaves like block element
-
-        // Add hover event listeners to the new anchor
-        newAnchor.addEventListener('mouseenter', showBlockInfo);
-        newAnchor.addEventListener('mouseleave', hideBlockInfo);
-
-        // Replace the old block with the new anchor
-        oldBlock.parentNode.replaceChild(newAnchor, oldBlock);
+        oldBlock.classList.add('logo');
+        oldBlock.dataset.imageType = imageName;
       }
     });
 
-    // For each group, calculate and apply the expanded image
-    imageGroups.forEach((group) => {
+    // For each group, create a single image with object-fit cover
+    imageGroups.forEach((group, groupIndex) => {
       const bounds = getGroupBounds(group);
 
-      group.forEach((blockIndex) => {
-        // Find the current block (now might be an anchor)
-        const block = canvas.children[blockIndex];
-        const coords = indexToCoords(blockIndex);
+      // Create a container div for the image group
+      const imageContainer = document.createElement('a');
+      imageContainer.href = config.url || '#';
+      imageContainer.target = '_blank';
+      imageContainer.className = 'image-container';
+      imageContainer.dataset.imageType = imageName;
 
-        // Calculate position within the group
-        const relativeRow = coords.row - bounds.minRow;
-        const relativeCol = coords.col - bounds.minCol;
+      // Calculate container position and size
+      const containerLeft = (bounds.minCol / 100) * 100;
+      const containerTop = (bounds.minRow / 100) * 100;
+      const containerWidth = bounds.width;
+      const containerHeight = bounds.height;
 
-        // Calculate background position as percentage
-        const backgroundPosX =
-          bounds.width > 1 ? (relativeCol / (bounds.width - 1)) * 100 : 50;
-        const backgroundPosY =
-          bounds.height > 1 ? (relativeRow / (bounds.height - 1)) * 100 : 50;
+      // Style the container
+      imageContainer.style.position = 'absolute';
+      imageContainer.style.left = `${containerLeft}%`;
+      imageContainer.style.top = `${containerTop}%`;
+      imageContainer.style.width = `${containerWidth}%`;
+      imageContainer.style.height = `${containerHeight}%`;
+      imageContainer.style.zIndex = '2';
+      imageContainer.style.display = 'block';
 
-        // Apply background properties for expanded image
-        block.style.backgroundImage = `url('${config.src}')`;
-        block.style.backgroundSize = `${bounds.width * 100}% ${
-          bounds.height * 100
-        }%`;
-        block.style.backgroundPosition = `${backgroundPosX}% ${backgroundPosY}%`;
-        block.style.backgroundRepeat = 'no-repeat';
+      // Create the image element
+      const img = document.createElement('img');
+      img.src = config.src;
+      img.alt = `Green Entity ${imageName}`;
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.display = 'block';
+      img.style.borderRadius = 'inherit';
+
+      // Add hover event listeners to the container
+      imageContainer.addEventListener('mouseenter', (e) => {
+        // Find the first block in this group for hover info
+        const firstBlockIndex = group[0];
+        const firstBlock = blocks[firstBlockIndex];
+        if (firstBlock) {
+          showBlockInfo({ target: firstBlock });
+        }
       });
+
+      imageContainer.addEventListener('mouseleave', hideBlockInfo);
+
+      // Append image to container
+      imageContainer.appendChild(img);
+
+      // Append container to canvas
+      canvas.appendChild(imageContainer);
     });
   });
 }
