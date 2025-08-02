@@ -15,4 +15,9 @@ const imageConfigs = {
     url: 'https://www.wikipedia.org/',
     blocks: [10, 11, 12, 13, 14, 15],
   },
+  data_2: {
+    src: 'images/data_1.jpg',
+    url: 'https://www.wikipedia.org/',
+    blocks: [345, 346, 347, 348, 349, 445, 446, 447, 448, 449],
+  },
 };
