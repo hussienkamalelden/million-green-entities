@@ -2,12 +2,28 @@
 
 // Initialize when page content loads
 document.addEventListener('DOMContentLoaded', function () {
+  initEmailJS();
   initMobileMenu();
   initContactForm();
   initScrollAnimations();
   initAccordion();
   initFooterStats();
 });
+
+// Initialize EmailJS
+function initEmailJS() {
+  if (
+    typeof emailjs !== 'undefined' &&
+    emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY'
+  ) {
+    emailjs.init(emailjsConfig.publicKey);
+    console.log('EmailJS initialized successfully');
+  } else {
+    console.warn(
+      'EmailJS not initialized - please configure your EmailJS credentials in config.js'
+    );
+  }
+}
 
 // Mobile menu functionality
 function initMobileMenu() {
@@ -72,21 +88,33 @@ function handleFormSubmit(e) {
   // Show loading state
   showLoadingState(submitBtn);
 
-  // Collect form data
-  const data = {
-    name: formData.get('name'),
-    organization: formData.get('organization'),
-    email: formData.get('email'),
-    phone: formData.get('phone'),
+  // Collect form data for EmailJS
+  const templateParams = {
+    from_name: formData.get('name'),
+    from_organization: formData.get('organization'),
+    from_email: formData.get('email'),
+    from_phone: formData.get('phone') || 'Not provided',
     message: formData.get('message'),
+    to_name: 'One Million Green Entities Team',
   };
 
-  // Simulate form submission (replace with actual API call)
-  setTimeout(() => {
-    console.log('Form submitted:', data);
-    showSuccessMessage(submitBtn);
-    form.reset();
-  }, 2000);
+  // Send email using EmailJS
+  emailjs
+    .send(
+      emailjsConfig.serviceId,
+      emailjsConfig.templateId,
+      templateParams,
+      emailjsConfig.publicKey
+    )
+    .then(function (response) {
+      console.log('Email sent successfully!', response.status, response.text);
+      showSuccessMessage(submitBtn);
+      form.reset();
+    })
+    .catch(function (error) {
+      console.error('Failed to send email:', error);
+      showErrorMessage(submitBtn);
+    });
 }
 
 // Validate entire form
@@ -207,6 +235,32 @@ function showSuccessMessage(submitBtn) {
     Message Sent!
   `;
   submitBtn.style.backgroundColor = '#28a745';
+
+  // Reset button after 3 seconds
+  setTimeout(() => {
+    submitBtn.innerHTML = `
+      <svg class="submit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 2L11 13"></path>
+        <polygon points="22,2 15,22 11,13 2,9"></polygon>
+      </svg>
+      Send Message
+    `;
+    submitBtn.style.backgroundColor = '#007a55';
+  }, 3000);
+}
+
+// Show error message
+function showErrorMessage(submitBtn) {
+  submitBtn.disabled = false;
+  submitBtn.innerHTML = `
+    <svg class="submit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="15" y1="9" x2="9" y2="15"></line>
+      <line x1="9" y1="9" x2="15" y2="15"></line>
+    </svg>
+    Failed to Send
+  `;
+  submitBtn.style.backgroundColor = '#dc3545';
 
   // Reset button after 3 seconds
   setTimeout(() => {
