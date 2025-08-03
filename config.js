@@ -1,3 +1,11 @@
+// EmailJS Configuration
+// Replace these with your actual EmailJS credentials
+const emailjsConfig = {
+  serviceId: 'service_kmmot6t', // Replace with your EmailJS service ID
+  templateId: 'template_khqygvl', // Replace with your EmailJS template ID
+  publicKey: 'AJ3vCMKJoiz3Hp7E3', // Replace with your EmailJS public key
+};
+
 // Image configurations
 const imageConfigs = {
   data_0: {
