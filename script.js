@@ -93,7 +93,7 @@ function initLoader() {
 
 function animateProgress(progressFill, progressText, totalPixels) {
   let progress = 0;
-  const duration = 2500; // Total animation duration
+  const duration = 1250; // Total animation duration (reduced by half)
   const interval = duration / 100; // Update every 1% of progress
 
   const progressInterval = setInterval(() => {
@@ -106,7 +106,7 @@ function animateProgress(progressFill, progressText, totalPixels) {
       // Complete the loading sequence
       setTimeout(() => {
         completeLoading();
-      }, 500);
+      }, 250);
     }
 
     // Update progress bar and text
@@ -125,7 +125,7 @@ function completeLoading() {
     setTimeout(() => {
       pixel.style.transform = 'scale(0)';
       pixel.style.opacity = '0';
-    }, index * 5);
+    }, index * 2.5);
   });
 
   // Hide loading screen with fade out
@@ -135,8 +135,8 @@ function completeLoading() {
     // Show main content
     setTimeout(() => {
       mainContent.classList.add('visible');
-    }, 300);
-  }, 800);
+    }, 150);
+  }, 400);
 }
 
 // Initialize loader when called
@@ -151,8 +151,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initMobileMenu();
   initFooterStats();
 
-  // Wait exactly 3 seconds then show content
-  setTimeout(showMainContent, 3000);
+  // Wait exactly 1.5 seconds then show content (reduced by half)
+  setTimeout(showMainContent, 1500);
 });
 
 // Animate footer statistics

@@ -494,7 +494,7 @@ body {
   color: #1a1a1a;
   margin-bottom: 12px;
   opacity: 0;
-  animation: titleFadeIn 1s ease-out 0.5s forwards;
+  animation: titleFadeIn 1s ease-out 0.25s forwards;
   letter-spacing: -0.02em;
 }
 
@@ -504,7 +504,7 @@ body {
   justify-content: center;
   gap: 12px;
   opacity: 0;
-  animation: subtitleFadeIn 1s ease-out 1s forwards;
+  animation: subtitleFadeIn 1s ease-out 0.5s forwards;
 }
 
 .loading-message {
@@ -557,7 +557,7 @@ body {
   width: 300px;
   text-align: center;
   opacity: 0;
-  animation: progressFadeIn 1s ease-out 1.5s forwards;
+  animation: progressFadeIn 1s ease-out 0.75s forwards;
 }
 
 .progress-bar {
