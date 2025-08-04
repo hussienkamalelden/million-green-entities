@@ -1,31 +1,33 @@
 // EmailJS Configuration
-// Replace these with your actual EmailJS credentials
 const emailjsConfig = {
-  serviceId: 'service_kmmot6t', // Replace with your EmailJS service ID
-  templateId: 'template_khqygvl', // Replace with your EmailJS template ID
-  publicKey: 'AJ3vCMKJoiz3Hp7E3', // Replace with your EmailJS public key
+  serviceId: 'service_kmmot6t',
+  templateId: 'template_khqygvl',
+  publicKey: 'AJ3vCMKJoiz3Hp7E3',
 };
 
 // Image configurations
 const imageConfigs = {
-  data_0: {
-    src: 'images/data_0.jpg',
-    url: 'https://google.com',
+  sunbula: {
+    src: 'images/entities/sunbula.jpg',
+    url: 'https://www.instagram.com/sunbulapan/',
+    blocks: [0, 1, 2, 3, 100, 101, 102, 103],
+  },
+  yallahikes: {
+    src: 'images/entities/yallahikes.jpg',
+    url: 'https://www.instagram.com/yallahikes/',
+    blocks: [1316, 1317, 1416, 1417],
+  },
+  datirs: {
+    src: 'images/entities/datirs.jpg',
+    url: 'https://www.datirs.com/',
     blocks: [
-      4950, 4951, 4952, 4953, 4954, 4955, 4956, 4957, 4958, 4959, 5050, 5051,
-      5052, 5053, 5054, 5055, 5056, 5057, 5058, 5059, 5150, 5151, 5152, 5153,
-      5154, 5155, 5156, 5157, 5158, 5159, 5250, 5251, 5252, 5253, 5254, 5255,
-      5256, 5257, 5258, 5259,
+      4152, 4153, 4154, 4155, 4156, 4157, 4158, 4252, 4253, 4254, 4255, 4256,
+      4257, 4258, 4352, 4353, 4354, 4356, 4357, 4358,
     ],
   },
-  data_1: {
-    src: 'images/data_1.jpg',
-    url: 'https://www.wikipedia.org/',
-    blocks: [10, 11, 12, 13, 14, 15],
-  },
-  data_2: {
-    src: 'images/data_1.jpg',
-    url: 'https://www.wikipedia.org/',
-    blocks: [345, 346, 347, 348, 349, 445, 446, 447, 448, 449],
+  fireflylife: {
+    src: 'images/entities/fireflylife.jpg',
+    url: 'https://www.fireflylife.org/',
+    blocks: [6330, 6331, 6332, 6430, 6431, 6432],
   },
 };
