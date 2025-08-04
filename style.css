@@ -431,6 +431,20 @@ body {
   visibility: hidden;
 }
 
+.section-container-special {
+  flex-direction: column;
+}
+
+.section-container-special .image-content {
+  height: 300px !important;
+  width: 100% !important;
+}
+.section-container-special img {
+  height: 300px !important;
+  width: 100% !important;
+  object-fit: cover;
+}
+
 .loader-container {
   display: flex;
   flex-direction: column;
