@@ -771,7 +771,7 @@ body {
   .footer-main {
     grid-template-columns: 1fr;
     gap: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 
   .footer-logo {
@@ -1024,7 +1024,7 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 60px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 /* Brand Section */
@@ -1089,7 +1089,6 @@ body {
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 0 0 12px 0;
   letter-spacing: -0.02em;
 }
 
