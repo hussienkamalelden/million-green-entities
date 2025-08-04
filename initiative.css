@@ -85,7 +85,6 @@
 
 .section-container.single-column {
   justify-content: center;
-  max-width: 800px;
 }
 
 /* Text Content */
@@ -296,7 +295,7 @@
 /* Large Screen Enhancements */
 @media (min-width: 1025px) {
   .steps-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px 24px;
   }
 
