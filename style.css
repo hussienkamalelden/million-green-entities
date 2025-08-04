@@ -770,8 +770,12 @@ body {
 
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
     margin-bottom: 25px;
+  }
+
+  .footer-section {
+    text-align: center;
   }
 
   .footer-logo {
@@ -779,6 +783,10 @@ body {
     align-items: center;
     text-align: center;
     gap: 16px;
+  }
+
+  .footer-brand-text {
+    text-align: center;
   }
 
   .footer-brand-text h3 {
@@ -806,6 +814,7 @@ body {
 
   .social-links {
     justify-content: center;
+    gap: 16px;
   }
 }
 
@@ -911,8 +920,8 @@ body {
   }
 
   .footer-main {
-    gap: 30px;
-    margin-bottom: 25px;
+    gap: 25px;
+    margin-bottom: 20px;
   }
 
   .footer-brand {
@@ -920,7 +929,11 @@ body {
   }
 
   .footer-logo {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .footer-brand-text {
+    text-align: center;
   }
 
   .footer-logo-grid {
@@ -943,6 +956,7 @@ body {
   .footer-section h4 {
     font-size: 0.95rem;
     margin-bottom: 14px;
+    text-align: center;
   }
 
   .footer-links a {
@@ -1027,6 +1041,14 @@ body {
   margin-bottom: 25px;
 }
 
+/* Improved responsive layout for footer main */
+@media (max-width: 992px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
 /* Brand Section */
 .footer-brand {
   max-width: 400px;
@@ -1037,6 +1059,38 @@ body {
   align-items: flex-start;
   gap: 20px;
   margin-bottom: 20px;
+}
+
+/* Responsive footer logo adjustments */
+@media (max-width: 992px) {
+  .footer-logo {
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-brand {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-logo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-brand-text {
+    text-align: center;
+  }
 }
 
 .footer-logo-grid {
@@ -1155,6 +1209,22 @@ body {
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* Responsive social links adjustments */
+@media (max-width: 992px) {
+  .social-links {
+    gap: 14px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .social-links {
+    justify-content: center;
+    gap: 12px;
+  }
 }
 
 .social-link {
