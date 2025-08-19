@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://onemilliongreenentities.com/sitemap.xml
+
+# Disallow certain files
+Disallow: /config.js
+Disallow: /script.js
+Disallow: /contact.js
+Disallow: /initiative.js
