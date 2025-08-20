@@ -62,6 +62,24 @@ body {
   gap: 16px;
 }
 
+.brand-logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-logo-img:hover {
+  transform: scale(1.05);
+}
+
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .logo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -735,6 +753,10 @@ body {
     height: 28px;
   }
 
+  .brand-logo-img {
+    height: 28px;
+  }
+
   .nav-menu {
     gap: 4px;
   }
@@ -853,6 +875,10 @@ body {
 
   .logo-grid {
     width: 24px;
+    height: 24px;
+  }
+
+  .brand-logo-img {
     height: 24px;
   }
 
